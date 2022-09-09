@@ -43,7 +43,7 @@ server.get("/movie/:movieId", (req, res) => {
 server.post("/sign-up", (req, res) => {
   console.log(req.body);
   const db = new Database("./db/users.db", { verbose: console.log });
-  const query = db.prepare("INSERT into users(email,password) VALUES (?,?)");
+  const query = db.prepare("INSERT INTO users(email,password) VALUES (?,?)");
   const result = query.run(req.body.email, req.body.password);
   res.json({
     success: true,
